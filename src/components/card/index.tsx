@@ -14,9 +14,7 @@ export const Card: React.FC<BoxProps> = ({name}) => {
         item: { name },
         end: (item, monitor) => {
           const dropResult = monitor.getDropResult<DropResult>()
-          if (item && dropResult) {
-            alert(`You dropped ${item.name} into ${dropResult.name}!`)
-          }
+         
         },
         collect: (monitor) => ({
           isDragging: monitor.isDragging(),

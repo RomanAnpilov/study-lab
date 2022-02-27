@@ -1,5 +1,5 @@
 .card {
-    border: 1px solid #000;
+    border: 5px dashed #a2cbd2;
     width: 100px;
     margin: 40px;
     height: 100px;
@@ -7,4 +7,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #0d1c24;
+    font-size: 30px;
   }

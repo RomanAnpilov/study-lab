@@ -11,9 +11,21 @@ export const DragDrop: React.FC = () => {
         <Card name="1"/>
         <Card name="2"/>
         <Card name="3"/>
+        <Card name="4"/>
+        <Card name="5"/>
+        <Card name="6"/>
       </div>
 
       <div className={style.grid}>
+        <div className={style.cell}>
+          <Dustbin />
+        </div>
+        <div className={style.cell}>
+          <Dustbin />
+        </div>
+        <div className={style.cell}>
+          <Dustbin />
+        </div>
         <div className={style.cell}>
           <Dustbin />
         </div>

@@ -3,7 +3,7 @@ import { useDrop, DropTargetMonitor } from 'react-dnd';
 import {ItemTypes} from "../ItemTypes"
 
 const style: CSSProperties = {
-  border: '1px solid gray',
+  border: '5px solid rgb(0, 128, 128, 0.1)',
   height: '100px',
   width: '100px',
   padding: '2rem',

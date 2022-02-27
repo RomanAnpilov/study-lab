@@ -4,18 +4,7 @@ import clsx from "clsx";
 export const MainPage: React.FC = () => {
   return (
     <div className={style.body}>
-      <header>
-        <h1 className={style.logo}>MathAcademy✨</h1>
-        <ul>
-          <li>Курсы</li>
-          <li>Тесты</li>
-          <li>Оценки</li>
-        </ul>
-        <div className={style.avatar}>
-          <img src="IMG_0618.PNG" alt="" />
-          <h2>Роман Анпилов</h2>
-        </div>
-      </header>
+      
       <div className={clsx(style.mainBlock)}>
         <div>
         <h1>Мои тесты</h1>

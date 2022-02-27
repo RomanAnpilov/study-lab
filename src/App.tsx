@@ -2,6 +2,7 @@ import React from "react";
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 import { MainPage } from "./pages/main";
 import {DragDrop} from "./pages/DragDrop"
+import {Inputs} from "./pages/Inputs"
 
 export default function App() {
   const config = {
@@ -18,12 +19,12 @@ export default function App() {
 
   console.log(set);
   return (
-    // <MathJaxContext renderMode="post" config={config}>
-    //   <input type="text" value={set} onChange={changeHandler} />
-    //   {/* <button onClick={() => setText("sosisj")}>agagagaga</button>
-    //   <h2>{text}</h2> */}
-    //   <MathJax dynamic>{`\`${set}\``}</MathJax>
-    // </MathJaxContext>
-    <DragDrop></DragDrop>
+    <MathJaxContext renderMode="post" config={config}>
+      <input type="text" value={set} onChange={changeHandler} />
+      {/* <button onClick={() => setText("sosisj")}>agagagaga</button>
+      <h2>{text}</h2> */}
+      <MathJax dynamic>{`\`${set}\``}</MathJax>
+    </MathJaxContext>
+    // <DragDrop></DragDrop>
   );
 }
