@@ -1,6 +1,7 @@
 import React from "react";
 import { MathJax, MathJaxContext } from "better-react-mathjax";
 import { MainPage } from "./pages/main";
+import {DragDrop} from "./pages/DragDrop"
 
 export default function App() {
   const config = {
@@ -23,6 +24,6 @@ export default function App() {
     //   <h2>{text}</h2> */}
     //   <MathJax dynamic>{`\`${set}\``}</MathJax>
     // </MathJaxContext>
-    <MainPage></MainPage>
+    <DragDrop></DragDrop>
   );
 }
