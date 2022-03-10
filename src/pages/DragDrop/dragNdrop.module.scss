@@ -12,7 +12,7 @@ body {
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   margin: 0 auto;
   width: 400px;
   position: absolute;
@@ -25,7 +25,7 @@ body {
 
 .answers {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 200px;
   position: absolute;
   top: 50%;
@@ -40,4 +40,21 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn {
+  button {
+    background: #a2cbd2;
+    color: white;
+    padding: 10px;
+    border-radius: 100px;
+    border: 1px solid #78c5d3;
+    margin-top: 30px;
+    font-size: 20px;
+    display: flex;
+    
+    img{
+      margin-left: 20px;
+    }
+  }
 }

@@ -6,14 +6,21 @@ import { Header } from "../../components/Header";
 export const DragDrop: React.FC = () => {
   return (
     <div className={style.page}>
-        <Header/>
+      <Header />
+
       <div className={style.answers}>
-        <Card name="1"/>
-        <Card name="2"/>
-        <Card name="3"/>
-        <Card name="4"/>
-        <Card name="5"/>
-        <Card name="6"/>
+        <Card name="1" />
+        <Card name="2" />
+        <Card name="3" />
+        <Card name="4" />
+        <Card name="5" />
+        <Card name="6" />
+        <Card name="1" />
+        <Card name="2" />
+        <Card name="3" />
+        <Card name="4" />
+        <Card name="5" />
+        <Card name="6" />
       </div>
 
       <div className={style.grid}>
@@ -34,6 +41,15 @@ export const DragDrop: React.FC = () => {
         </div>
         <div className={style.cell}>
           <Dustbin />
+        </div>
+        <div className={style.cell}>
+          <Dustbin />
+        </div>
+        <div className={style.cell}>
+          <Dustbin />
+        </div>
+        <div className={style.btn}>
+          <button>Next Card<img src="/arrow.png" /></button>
         </div>
       </div>
     </div>
