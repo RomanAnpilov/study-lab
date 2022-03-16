@@ -6,51 +6,40 @@ import axios from "axios";
 import React from "react";
 
 export const DragDrop: React.FC = () => {
-  const [answers, setAnswers] = React.useState<{text: string, id: number}[]>([]);
+  const [answers, setAnswers] = React.useState<{ text: string; id: number }[]>(
+    []
+  );
+  const [questions, setQuestions] = React.useState<
+    { text: string; id: number }[]
+  >([]);
 
   React.useEffect(() => {
     (async () => {
-      const {data} = await axios.get(
+      const answers = await axios.get(
         "https://622a1acfbe12fc4538b24619.mockapi.io/answers"
       );
-      setAnswers(data);
+      const questions = await axios.get(
+        "https://622a1acfbe12fc4538b24619.mockapi.io/questions"
+      );
+      setAnswers(answers.data);
+      setQuestions(questions.data);
     })();
   }, []);
 
   return (
     <div className={style.page}>
       <Header />
-      {console.log(answers)}
-
       <div className={style.answers}>
-       {answers.map((item) => <Card name={item.text} />)}
+        {answers.map((item) => (
+          <Card name={item.text} />
+        ))}
       </div>
-
       <div className={style.grid}>
-        <div className={style.cell}>
-          <Dustbin textProps="23" />
-        </div>
-        <div className={style.cell}>
-          <Dustbin textProps="43" />
-        </div>
-        <div className={style.cell}>
-          <Dustbin textProps="53" />
-        </div>
-        <div className={style.cell}>
-          <Dustbin textProps="63" />
-        </div>
-        <div className={style.cell}>
-          <Dustbin textProps="73" />
-        </div>
-        <div className={style.cell}>
-          <Dustbin textProps="83" />
-        </div>
-        <div className={style.cell}>
-          <Dustbin textProps="93" />
-        </div>
-        <div className={style.cell}>
-          <Dustbin textProps="103" />
-        </div>
+        {questions.map((item) => (
+          <div className={style.cell}>
+            <Dustbin textProps={item.text} />
+          </div>
+        ))}
         <div className={style.btn}>
           <button>
             Next Card
