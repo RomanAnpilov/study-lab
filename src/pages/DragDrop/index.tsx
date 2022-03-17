@@ -10,7 +10,7 @@ export const DragDrop: React.FC = () => {
     []
   );
   const [questions, setQuestions] = React.useState<
-    { text: string; id: number }[]
+    { text: string; answer: string; id: number }[]
   >([]);
 
   React.useEffect(() => {
@@ -37,7 +37,7 @@ export const DragDrop: React.FC = () => {
       <div className={style.grid}>
         {questions.map((item) => (
           <div className={style.cell}>
-            <Dustbin textProps={item.text} />
+            <Dustbin answerText={item.answer} textProps={item.text} />
           </div>
         ))}
         <div className={style.btn}>

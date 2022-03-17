@@ -2,8 +2,9 @@ import { MathJax, MathJaxContext } from "better-react-mathjax";
 import { CSSProperties, FC, useState, useCallback, memo } from "react";
 import { useDrop, DropTargetMonitor } from "react-dnd";
 import { ItemTypes } from "../ItemTypes";
-
-const style: CSSProperties = {
+import clsx from "clsx";
+import style from "./Dustbin.module.scss"
+const styles: CSSProperties = {
   border: "5px solid rgb(0, 128, 128, 0.1)",
   height: "150px",
   width: "150px",
@@ -15,12 +16,14 @@ export interface TargetBoxProps {
   onDrop: (item: any) => void;
   lastDroppedColor?: any;
   text: string;
+  answer: string;
 }
 
 const TargetBox: FC<TargetBoxProps> = memo(function TargetBox({
   onDrop,
   lastDroppedColor,
   text,
+  answer
 }) {
   const config = {
     loader: { load: ["input/asciimath"] },
@@ -49,7 +52,8 @@ const TargetBox: FC<TargetBoxProps> = memo(function TargetBox({
     <div
       ref={drop}
       data-color={lastDroppedColor || "none"}
-      style={{ ...style, backgroundColor, opacity }}
+      style={{ ...styles, backgroundColor, opacity,}}
+      className={clsx(lastDroppedColor && (lastDroppedColor.name === answer ? style.check : style.bad))}
       role="TargetBox"
     >
       <MathJaxContext renderMode="post" config={config}>
@@ -57,6 +61,7 @@ const TargetBox: FC<TargetBoxProps> = memo(function TargetBox({
         {!canDrop && lastDroppedColor && (
           <p>
             Answer: <MathJax>{`\`${lastDroppedColor.name}\``}</MathJax>
+            {lastDroppedColor.name === answer ? "GOOD" : "FAIL"}
           </p>
         )}
       </MathJaxContext>
@@ -67,7 +72,7 @@ const TargetBox: FC<TargetBoxProps> = memo(function TargetBox({
 export interface StatefulTargetBoxState {
   lastDroppedColor: any | null;
 }
-export const Dustbin: FC<{ textProps: string }> = ({ textProps }) => {
+export const Dustbin: FC<{ textProps: string, answerText: string }> = ({ textProps, answerText }) => {
   const [lastDroppedColor, setLastDroppedColor] = useState<any>(null);
   const handleDrop = useCallback(
     (color: any) => setLastDroppedColor(color),
@@ -77,6 +82,7 @@ export const Dustbin: FC<{ textProps: string }> = ({ textProps }) => {
   return (
     <TargetBox
       text={textProps}
+      answer={answerText}
       lastDroppedColor={lastDroppedColor as any}
       onDrop={handleDrop}
     />
