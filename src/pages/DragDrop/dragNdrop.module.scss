@@ -21,6 +21,7 @@ body {
   left: 50%;
   margin-right: -50%;
   transform: translate(-50%, -50%);
+  margin-left: 100px
 }
 
 .answers {
@@ -42,6 +43,11 @@ body {
   justify-content: center;
 }
 
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
 .btn {
   button {
     background: #a2cbd2;
@@ -52,6 +58,7 @@ body {
     margin-top: 30px;
     font-size: 20px;
     display: flex;
+    cursor: pointer;
     
     img{
       margin-left: 20px;
